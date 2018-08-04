@@ -1,6 +1,6 @@
 {
     "name": "jimmy-eats-dicks",
-    "homepage": "https://shadskii.github.io/boaty-boat",
+    "homepage": "https://shadskii.github.io/jimmy-eats-dicks",
     "version": "2.0.0",
     "description": "Help Boaty Boat survive his boating adventure",
     "author": "Jake Hassel <jake.k.hassel@gmail.com>",
@@ -8,7 +8,7 @@
     "scripts": {
         "dev": "webpack-dev-server --mode development --open",
         "build": "webpack --config webpack.config.js",
-        "deploy": "webpack --config webpack.production.config.js && gh-pages -d build",
+        "deploy": "webpack --config webpack.config.js && gh-pages -d dist",
         "cleanEnv": "rm -rf node_modules && npm install",
         "test": "eslint ./src/**/**.js"
     },
