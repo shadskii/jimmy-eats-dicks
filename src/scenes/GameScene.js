@@ -27,9 +27,9 @@ class GameScene extends Scene {
             fill: '#fff',
         });
 
-        this.boaty = new Jimmy({
+        this.jimmy = new Jimmy({
             scene: this,
-            key: 'boaty',
+            key: 'jimmy',
             x: this.width / 8,
             y: this.height / 7,
         });
@@ -38,7 +38,7 @@ class GameScene extends Scene {
         this.enemies = this.add.group();
 
         this.time.addEvent({
-            delay: 2000,
+            delay: 1000,
             callback: this.addDick,
             callbackScope: this,
             loop: true,
@@ -56,13 +56,14 @@ class GameScene extends Scene {
     }
 
     update() {
-        this.boaty.update(this.isJump || this.spaceJump.isDown);
+        this.jimmy.update(this.isJump || this.spaceJump.isDown);
         this.enemies.children.entries.forEach((element) => {
             element.update();
         });
-        if (!this.boaty.alive) {
-            this.scene.start('GameOverScene', {score: this.score});
-        }
+        this.scoreText.setText(this.jimmy.dicksEaten);
+        // if (!this.boaty.alive) {
+        //     this.scene.start('GameOverScene', {score: this.score});
+        // }
     }
 
     enemySpawnYValue() {

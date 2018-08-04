@@ -19,8 +19,8 @@ class TitleScene extends Scene {
             .setScale(10, 0.5)
             .refreshBody();
 
-        this.title = this.add.text(width / 10, height / 10, 'Boaty Boat', {
-            fontSize: width / 12 + 'px',
+        this.title = this.add.text(width / 10, height / 10, 'Jimmy Eats Dicks', {
+            fontSize: width / 10 + 'px',
             fill: '#fff',
         });
         this.pressStart = this.add.text(0, 0, 'TAP TO START', {

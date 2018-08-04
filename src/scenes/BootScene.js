@@ -12,10 +12,7 @@ class BootScene extends Scene {
         this.load.image('water', 'images/water.png');
         this.load.image('ground', 'images/sandy-bottom.png');
         this.load.image('dick', 'images/dick.png');
-        this.load.image('mine', 'images/sea_mine.png');
-        this.load.image('boaty', 'images/jimmy.png');
-        this.load.image('whale', 'images/whale.png');
-        this.load.image('crab', 'images/crab.png');
+        this.load.image('jimmy', 'images/jimmy2.png');
         this.load.image('play-again', 'images/play_again.png');
     }
 

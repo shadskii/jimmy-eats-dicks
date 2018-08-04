@@ -8,30 +8,26 @@ export default class extends GameObjects.Sprite {
         super(config.scene, config.x, config.y, config.key);
         config.scene.physics.world.enable(this);
         config.scene.add.existing(this);
-        this.boaty = this.scene.boaty;
-        this.scene.physics.add.collider(this, this.boaty, this.boatyHit, this.boatyHit, this);
+        this.jimmy = this.scene.jimmy;
+        this.scene.physics.add.collider(this, this.jimmy, this.getEaten, this.getEaten, this);
         this.eaten = false;
-        this.body.velocity.x = -1000;
+        this.body.velocity.x = -500;
         this.acceleration = 0;
         this.body.maxVelocity.y = 0;
         this.body.setSize(200, 20);
         this.setScale(0.3, 0.3);
     }
 
-    boatyHit(mine, boaty) {
-        this.boaty.die();
-        return true;
-    }
-
     getEaten() {
-        this.jimmy.eatADick();
         this.eaten = true;
     }
 
     update() {
         let xRightBoundary = this.x + this.displayWidth / 2;
+        if (this.eaten) {
+            this.jimmy.eatADick();
+        }
         if (xRightBoundary <= 0 || this.eaten) {
-            this.scene.incrementScore();
             this.scene.enemies.remove(this);
             this.destroy();
         }
