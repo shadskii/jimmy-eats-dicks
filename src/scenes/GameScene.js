@@ -1,9 +1,6 @@
 import {Phaser, Scene, SPACE} from 'phaser';
-import Boaty from '../sprites/Boaty';
-import Mine from '../sprites/Mine';
-import Whale from '../sprites/Whale';
-import Crab from '../sprites/Crab';
-import Torpedo from '../sprites/Torpedo';
+import Jimmy from '../sprites/Jimmy';
+import Dick from '../sprites/Dick';
 
 /**
  * This is the primary scene. The game is played during this scene.
@@ -30,36 +27,19 @@ class GameScene extends Scene {
             fill: '#fff',
         });
 
-        this.boaty = new Boaty({
+        this.boaty = new Jimmy({
             scene: this,
             key: 'boaty',
             x: this.width / 8,
             y: this.height / 7,
         });
 
-        // Enemy generation
+        // // Enemy generation
         this.enemies = this.add.group();
-        this.time.addEvent({
-            delay: 800,
-            callback: this.addMine,
-            callbackScope: this,
-            loop: true,
-        });
+
         this.time.addEvent({
             delay: 2000,
-            callback: this.addWhale,
-            callbackScope: this,
-            loop: true,
-        });
-        this.time.addEvent({
-            delay: 4000,
-            callback: this.addCrab,
-            callbackScope: this,
-            loop: true,
-        });
-        this.time.addEvent({
-            delay: 9000,
-            callback: this.addTorpedo,
+            callback: this.addDick,
             callbackScope: this,
             loop: true,
         });
@@ -91,41 +71,11 @@ class GameScene extends Scene {
         return Math.floor(Math.random() * range) + topPad;
     }
 
-    addMine() {
+    addDick() {
         this.enemies.add(
-            new Mine({
+            new Dick({
                 scene: this,
-                key: 'mine',
-                x: this.width + this.width / 10,
-                y: this.enemySpawnYValue(),
-            })
-        );
-    }
-    addWhale() {
-        this.enemies.add(
-            new Whale({
-                scene: this,
-                key: 'whale',
-                x: this.width + this.width / 5,
-                y: this.enemySpawnYValue(),
-            })
-        );
-    }
-    addCrab() {
-        this.enemies.add(
-            new Crab({
-                scene: this,
-                key: 'crab',
-                x: this.width + this.width / 10,
-                y: this.height * 0.95,
-            })
-        );
-    }
-    addTorpedo() {
-        this.enemies.add(
-            new Torpedo({
-                scene: this,
-                key: 'torpedo',
+                key: 'dick',
                 x: this.width + this.width / 10,
                 y: this.enemySpawnYValue(),
             })

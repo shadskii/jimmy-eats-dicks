@@ -1,9 +1,9 @@
 import Phaser from 'phaser';
 
 /**
- * The protagonist of this game. Beloved by all.
+ * Jimmy seriously loves dicks
  */
-export default class Boaty extends Phaser.GameObjects.Sprite {
+export default class Jimmy extends Phaser.GameObjects.Sprite {
     constructor(config) {
         super(config.scene, config.x, config.y, config.key);
         config.scene.physics.world.enable(this);
