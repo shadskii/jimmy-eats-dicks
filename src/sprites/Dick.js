@@ -9,6 +9,7 @@ export default class extends GameObjects.Sprite {
         config.scene.physics.world.enable(this);
         config.scene.add.existing(this);
         this.jimmy = this.scene.jimmy;
+        this.store = this.scene.store;
         this.scene.physics.add.collider(this, this.jimmy, this.getEaten, this.getEaten, this);
         this.eaten = false;
         this.body.velocity.x = -500;
@@ -27,7 +28,11 @@ export default class extends GameObjects.Sprite {
         if (this.eaten) {
             this.jimmy.eatADick();
         }
-        if (xRightBoundary <= 0 || this.eaten) {
+        if (xRightBoundary <= 0 ) {
+            this.scene.enemies.remove(this);
+            this.destroy();
+            this.store.missCount++;
+        } else if (this.eaten) {
             this.scene.enemies.remove(this);
             this.destroy();
         }

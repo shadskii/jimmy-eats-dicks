@@ -1,6 +1,8 @@
 import {Phaser, Scene, SPACE} from 'phaser';
 import Jimmy from '../sprites/Jimmy';
 import Dick from '../sprites/Dick';
+import Store from '../Store.js';
+const MISS_LIMIT = 3;
 
 /**
  * This is the primary scene. The game is played during this scene.
@@ -20,7 +22,7 @@ class GameScene extends Scene {
             .create(0, this.height, 'ground')
             .setScale(10, 0.5)
             .refreshBody();
-
+        this.missCount = 0;
         this.score = 0;
         this.scoreText = this.add.text(24, 24, '0', {
             fontSize: '32px',
@@ -44,6 +46,8 @@ class GameScene extends Scene {
             loop: true,
         });
 
+        this.store = new Store();
+
         // Input controls
         this.isJump = false;
         this.input.on('pointerdown', (pointer) => {
@@ -61,9 +65,9 @@ class GameScene extends Scene {
             element.update();
         });
         this.scoreText.setText(this.jimmy.dicksEaten);
-        // if (!this.boaty.alive) {
-        //     this.scene.start('GameOverScene', {score: this.score});
-        // }
+        if (this.store.missCount > MISS_LIMIT) {
+            this.scene.start('GameOverScene', {score: this.jimmy.dicksEaten});
+        }
     }
 
     enemySpawnYValue() {
