@@ -64,7 +64,10 @@ class GameScene extends Scene {
         this.enemies.children.entries.forEach((element) => {
             element.update();
         });
-        this.scoreText.setText(this.jimmy.dicksEaten);
+        let miss = 'X';
+        let numMiss = MISS_LIMIT - this.store.missCount;
+        numMiss = numMiss > 0 ? numMiss : 0;
+        this.scoreText.setText(`${this.jimmy.dicksEaten} ${miss.repeat(numMiss)}`);
         if (this.store.missCount > MISS_LIMIT) {
             this.scene.start('GameOverScene', {score: this.jimmy.dicksEaten});
         }
@@ -85,10 +88,6 @@ class GameScene extends Scene {
                 y: this.enemySpawnYValue(),
             })
         );
-    }
-    incrementScore() {
-        this.score++;
-        this.scoreText.setText(this.score);
     }
 }
 
