@@ -9,7 +9,7 @@ export default class Jimmy extends Phaser.GameObjects.Sprite {
         config.scene.physics.world.enable(this);
         config.scene.add.existing(this);
         this.acceleration = 800;
-        this.body.maxVelocity.x = 300;
+        this.body.maxVelocity.x = 0;
         this.alive = true;
         this.body.setCollideWorldBounds(true);
         this.body.setSize(100, 175);
