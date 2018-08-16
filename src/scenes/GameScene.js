@@ -74,8 +74,8 @@ class GameScene extends Scene {
     }
 
     enemySpawnYValue() {
-        let range = this.height * 0.9;
-        let topPad = this.height * 0.02;
+        let range = this.height * 0.75;
+        let topPad = this.height * 0.10;
         return Math.floor(Math.random() * range) + topPad;
     }
 
