@@ -25,8 +25,8 @@ export default class GameOverScene extends Scene {
             .setScale(10, 0.5)
             .refreshBody();
 
-        this.scoreText = this.add.text(0, 0, this.score, {
-            fontSize: width / 5 + 'px',
+        this.scoreText = this.add.text(0, 0, `Jimmy ate \n${this.score} dicks!`, {
+            fontSize: width / 7 + 'px',
             fill: '#fff',
         });
         this.restartButton = this.add.image(0, 0, 'play-again').setInteractive();
