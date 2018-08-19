@@ -12,7 +12,7 @@ export default class Jimmy extends Phaser.GameObjects.Sprite {
         this.body.maxVelocity.x = 0;
         this.alive = true;
         this.body.setCollideWorldBounds(true);
-        this.body.setSize(100, 175);
+        this.body.setSize(100, 200);
         this.dicksEaten = 0;
     }
 
