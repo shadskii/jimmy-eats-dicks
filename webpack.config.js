@@ -33,7 +33,7 @@ module.exports = {
         new CleanWebpackPlugin(['dist']),
         new CopyWebpackPlugin([{from: 'assets'}]),
         new HtmlWebpackPlugin({
-            title: 'fullpage template',
+            title: 'Jimmy Eats Dicks',
             template: 'src/index.html',
         }),
         new webpack.ProvidePlugin({
