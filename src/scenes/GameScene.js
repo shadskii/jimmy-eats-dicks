@@ -40,7 +40,7 @@ class GameScene extends Scene {
         this.enemies = this.add.group();
 
         this.time.addEvent({
-            delay: 1000,
+            delay: 1100,
             callback: this.addDick,
             callbackScope: this,
             loop: true,
